@@ -1,4 +1,4 @@
-# ruralApp :tractor:
+# RuralManager :tractor:
 RuralManager é um sistema que terá como objetivo auxiliar o produtor rural na gestão de sua propriedade.
 
 Está sendo desenvolvido como case de estudo e prática de programação, análise e levantamento de requisitos.
