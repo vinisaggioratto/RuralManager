@@ -1,21 +1,19 @@
-package com.vgs.rm.viewdto;
+package com.vgs.rm.dto;
 
+import com.vgs.rm.entity.Register;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RegisterViewDTO {
+public class UserDTO {
 
     private Long id;
     private String name;
-    private String cpf_cnpj;
-    private String email;
-    private String cell_phone;
-    private Boolean is_whattsapp;
+    private String login;
+    private String password;
     private Boolean active;
+    private Register register;
 }

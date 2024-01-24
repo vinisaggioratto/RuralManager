@@ -23,7 +23,7 @@ public class RegisterService {
     public List<RegisterViewDTO> getAll() {
         return repository.findAll().stream().map(
                 register -> new RegisterViewDTO(
-                        register.getName(), register.getCpf_cnpj(),
+                        register.getId(), register.getName(), register.getCpf_cnpj(),
                         register.getEmail(), register.getCell_phone(), register.getIs_whattsapp(),
                         register.getActive()
                 )
@@ -37,7 +37,7 @@ public class RegisterService {
         }
         Register register = optional.get();
         return new RegisterViewDTO(
-                register.getName(), register.getCpf_cnpj(),
+                register.getId(), register.getName(), register.getCpf_cnpj(),
                 register.getEmail(), register.getCell_phone(), register.getIs_whattsapp(),
                 register.getActive()
         );
@@ -48,7 +48,7 @@ public class RegisterService {
         Register regSave = mapper.map(register, Register.class);
         repository.save(regSave);
         return new RegisterViewDTO(
-                register.getName(), register.getCpf_cnpj(),
+                register.getId(), register.getName(), register.getCpf_cnpj(),
                 register.getEmail(), register.getCell_phone(), register.getIs_whattsapp(),
                 register.getActive()
         );
@@ -63,7 +63,7 @@ public class RegisterService {
         }
         repository.save(regSave);
         return new RegisterViewDTO(
-                register.getName(), register.getCpf_cnpj(),
+                register.getId(), register.getName(), register.getCpf_cnpj(),
                 register.getEmail(), register.getCell_phone(), register.getIs_whattsapp(),
                 register.getActive()
         );
