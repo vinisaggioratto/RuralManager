@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.vgs</groupId>
 	<artifactId>rm</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-RuralManager</version>
 	<name>RuralManager</name>
 	<description>Sistema de gestão de pequenas e médias propriedades rurais.</description>
 	<properties>
