@@ -3,6 +3,7 @@ package com.vgs.rm.service;
 import com.vgs.rm.dto.UserDTO;
 import com.vgs.rm.entity.User;
 import com.vgs.rm.repository.UserRepository;
+import com.vgs.rm.security.SecurityConfig;
 import com.vgs.rm.viewdto.UserViewDTO;
 import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
@@ -42,6 +43,7 @@ public class UserService {
     }
     @Transactional
     public UserViewDTO save(UserDTO user){
+        user.setPassword(SecurityConfig.passwordEncoder().encode(user.getPassword()));
         User usSave = mapper.map(user, User.class);
         repository.save(usSave);
         return new UserViewDTO(
@@ -52,6 +54,7 @@ public class UserService {
 
     @Transactional
     public UserViewDTO update(UserDTO user){
+        user.setPassword(SecurityConfig.passwordEncoder().encode(user.getPassword()));
         User usSave = mapper.map(user, User.class);
         Optional<User> optional = repository.findById(user.getId());
         if (!optional.isPresent()){
