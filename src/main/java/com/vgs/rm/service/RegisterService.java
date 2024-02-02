@@ -25,7 +25,7 @@ public class RegisterService {
                 register -> new RegisterViewDTO(
                         register.getId(), register.getName(), register.getCpf_cnpj(),
                         register.getEmail(), register.getCell_phone(), register.getIs_whattsapp(),
-                        register.getActive()
+                        register.getActive(), register.getTypeRegister()
                 )
         ).collect(Collectors.toList());
     }
@@ -39,7 +39,7 @@ public class RegisterService {
         return new RegisterViewDTO(
                 register.getId(), register.getName(), register.getCpf_cnpj(),
                 register.getEmail(), register.getCell_phone(), register.getIs_whattsapp(),
-                register.getActive()
+                register.getActive(), register.getTypeRegister()
         );
     }
 
@@ -50,7 +50,7 @@ public class RegisterService {
         return new RegisterViewDTO(
                 register.getId(), register.getName(), register.getCpf_cnpj(),
                 register.getEmail(), register.getCell_phone(), register.getIs_whattsapp(),
-                register.getActive()
+                register.getActive(), register.getTypeRegister()
         );
     }
 
@@ -65,7 +65,7 @@ public class RegisterService {
         return new RegisterViewDTO(
                 register.getId(), register.getName(), register.getCpf_cnpj(),
                 register.getEmail(), register.getCell_phone(), register.getIs_whattsapp(),
-                register.getActive()
+                register.getActive(), register.getTypeRegister()
         );
     }
 

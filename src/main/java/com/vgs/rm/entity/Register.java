@@ -1,5 +1,6 @@
 package com.vgs.rm.entity;
 
+import com.vgs.rm.enums.TypeRegister;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -44,6 +45,7 @@ public class Register {
     @Column(length = 2000)
     private String notes;
 
+    private TypeRegister typeRegister;
     public Register(Long id) {
         this.id = id;
     }
