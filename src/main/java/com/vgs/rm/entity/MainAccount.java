@@ -3,6 +3,7 @@ package com.vgs.rm.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "main_account")
+@EqualsAndHashCode(of = "id")
 public class MainAccount {
 
     @Id
