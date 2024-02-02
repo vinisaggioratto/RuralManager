@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,6 +30,8 @@ public class User {
     private String password;
 
     private Boolean active;
+
+    private Timestamp dateLastUpdate;
     @ManyToOne
     @JoinColumn(name = "register_id")
     private Register register;
