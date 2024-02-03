@@ -1,5 +1,6 @@
 package com.vgs.rm.viewdto;
 
+import com.vgs.rm.entity.Activity;
 import com.vgs.rm.entity.Register;
 import lombok.AllArgsConstructor;
 import lombok.Data;

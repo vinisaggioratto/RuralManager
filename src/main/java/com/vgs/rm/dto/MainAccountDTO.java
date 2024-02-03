@@ -1,5 +1,6 @@
 package com.vgs.rm.dto;
 
+import com.vgs.rm.entity.Activity;
 import com.vgs.rm.entity.Register;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
