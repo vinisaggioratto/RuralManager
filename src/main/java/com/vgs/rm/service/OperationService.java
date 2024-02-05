@@ -3,6 +3,7 @@ package com.vgs.rm.service;
 import com.vgs.rm.dto.OperationDTO;
 import com.vgs.rm.entity.Operation;
 import com.vgs.rm.repository.OperationRepository;
+import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,7 @@ public class OperationService {
                 operation.getActive()
         );
     }
-
+    @Transactional
     public OperationDTO save(OperationDTO operation) {
         Operation opSave = mapper.map(operation, Operation.class);
         repository.save(opSave);
@@ -49,7 +50,7 @@ public class OperationService {
                 operation.getActive()
         );
     }
-
+    @Transactional
     public OperationDTO update(OperationDTO operation) {
         Operation opSave = mapper.map(operation, Operation.class);
         Optional<Operation> optional = repository.findById(operation.getId());
@@ -62,7 +63,7 @@ public class OperationService {
                 operation.getActive()
         );
     }
-
+    @Transactional
     public void delete(Long id) {
         Optional<Operation> optional = repository.findById(id);
         if (!optional.isPresent()) {
