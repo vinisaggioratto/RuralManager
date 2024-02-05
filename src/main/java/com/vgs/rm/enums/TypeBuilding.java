@@ -7,7 +7,7 @@ public enum TypeBuilding {
     ARMAZEM,
     SILO,
     AVIARIO,
-    ACUDE,
+    LAGOA,
     AREA_TERRA,
     CHIQUEIRO
 }
