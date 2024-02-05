@@ -37,5 +37,7 @@ public class Activity {
     @JoinColumn(name = "building_id")
     private Building building;
 
-
+    public Activity(Long id) {
+        this.id = id;
+    }
 }
