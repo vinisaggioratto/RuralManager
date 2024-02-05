@@ -4,6 +4,7 @@ import com.vgs.rm.dto.BuildingDTO;
 import com.vgs.rm.entity.Building;
 import com.vgs.rm.repository.BuildingRepository;
 import com.vgs.rm.viewdto.BuildingViewDTO;
+import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,7 @@ public class BuildingService {
                 building.getActive(), building.getTypeBuilding().name()
         );
     }
-
+    @Transactional
     public BuildingViewDTO save(BuildingDTO building) {
         Building buiSave = mapper.map(building, Building.class);
         repository.save(buiSave);
@@ -49,7 +50,7 @@ public class BuildingService {
                 building.getActive(), building.getTypeBuilding().name()
         );
     }
-
+    @Transactional
     public BuildingViewDTO update(BuildingDTO building){
         Building buiSave = mapper.map(building, Building.class);
         Optional<Building> optional = repository.findById(building.getId());
@@ -62,7 +63,7 @@ public class BuildingService {
                 building.getActive(), building.getTypeBuilding().name()
         );
     }
-
+    @Transactional
     public void delete(Long id){
         Optional<Building> optional = repository.findById(id);
         if (!optional.isPresent()){

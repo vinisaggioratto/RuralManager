@@ -4,6 +4,7 @@ import com.vgs.rm.dto.ActivityDTO;
 import com.vgs.rm.entity.Activity;
 import com.vgs.rm.repository.ActivityRepository;
 import com.vgs.rm.viewdto.ActivityViewDTO;
+import jakarta.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,7 +44,7 @@ public class ActivityService {
                 activity.getOperation(), activity.getMainAccount(), activity.getBuilding()
         );
     }
-
+    @Transactional
     public ActivityViewDTO save(ActivityDTO activity) {
         Activity actSave = mapper.map(activity, Activity.class);
         repository.save(actSave);
@@ -53,7 +54,7 @@ public class ActivityService {
                 activity.getOperation(), activity.getMainAccount(), activity.getBuilding()
         );
     }
-
+    @Transactional
     public ActivityViewDTO update(ActivityDTO activity) {
         Activity actSave = mapper.map(activity, Activity.class);
         Optional<Activity> optional = repository.findById(activity.getId());
@@ -67,7 +68,7 @@ public class ActivityService {
                 activity.getOperation(), activity.getMainAccount(), activity.getBuilding()
         );
     }
-
+    @Transactional
     public void delete(Long id){
         Optional<Activity> optional = repository.findById(id);
         if (!optional.isPresent()){

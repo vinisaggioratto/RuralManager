@@ -77,4 +77,17 @@ public class UserService {
         user.setActive(false);
         repository.save(user);
     }
+
+    public Boolean validarUser(String login, String password){
+        Boolean loginStatus = false;
+        Boolean localizado = false;
+        Optional<User> optional = repository.findByLogin(login);
+        User usuario = optional.get();
+        if(optional.isPresent()){
+           loginStatus = SecurityConfig.passwordEncoder().matches(usuario.getPassword(), password);
+        }
+        return loginStatus;
+    }
+
+
 }
