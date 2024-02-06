@@ -15,7 +15,7 @@ public class LoginService {
 
     private ModelMapper mapper = new ModelMapper();
 
-    public Boolean validarUser(LoginDTO login) { //, String password
+    public Boolean validarUser(LoginDTO login) {
         Boolean loginStatus = false;
         User user = loginRepository.findUserByLogin(login.getLogin());
         if (user != null && SecurityConfig.passwordEncoder().matches(login.getPassword(), user.getPassword())) {
