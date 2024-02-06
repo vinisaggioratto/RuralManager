@@ -41,8 +41,9 @@ public class UserService {
                 user.getRegister().getName()
         );
     }
+
     @Transactional
-    public UserViewDTO save(UserDTO user){
+    public UserViewDTO save(UserDTO user) {
         user.setPassword(SecurityConfig.passwordEncoder().encode(user.getPassword()));
         User usSave = mapper.map(user, User.class);
         repository.save(usSave);
@@ -53,11 +54,11 @@ public class UserService {
     }
 
     @Transactional
-    public UserViewDTO update(UserDTO user){
+    public UserViewDTO update(UserDTO user) {
         user.setPassword(SecurityConfig.passwordEncoder().encode(user.getPassword()));
         User usSave = mapper.map(user, User.class);
         Optional<User> optional = repository.findById(user.getId());
-        if (!optional.isPresent()){
+        if (!optional.isPresent()) {
             throw new RuntimeException("User not found.");
         }
         repository.save(usSave);
@@ -68,26 +69,13 @@ public class UserService {
     }
 
     @Transactional
-    public void delete(Long id){
+    public void delete(Long id) {
         Optional<User> optional = repository.findById(id);
-        if (!optional.isPresent()){
+        if (!optional.isPresent()) {
             throw new RuntimeException("User not found.");
         }
         User user = optional.get();
         user.setActive(false);
         repository.save(user);
     }
-
-    public Boolean validarUser(String login, String password){
-        Boolean loginStatus = false;
-        Boolean localizado = false;
-        Optional<User> optional = repository.findByLogin(login);
-        User usuario = optional.get();
-        if(optional.isPresent()){
-           loginStatus = SecurityConfig.passwordEncoder().matches(usuario.getPassword(), password);
-        }
-        return loginStatus;
-    }
-
-
 }
