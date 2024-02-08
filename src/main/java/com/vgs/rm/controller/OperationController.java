@@ -6,10 +6,9 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("operation")
 @CrossOrigin
 public class OperationController {
@@ -38,6 +37,7 @@ public class OperationController {
     @PostMapping()
     public ResponseEntity save(@Valid @RequestBody OperationDTO operation){
         try {
+            operation.setActive(true);
             return new ResponseEntity<>(service.save(operation), HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>("[Error registering operation] - " + e.getMessage(), HttpStatus.BAD_REQUEST);

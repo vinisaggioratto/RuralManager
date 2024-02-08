@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -23,7 +24,7 @@ public class User {
     private String name;
 
     @Column(length = 100, nullable = false, unique = true)
-    private String login;
+    private String username;
 
     @Column(length = 64, nullable = false)
     @Size(min = 6, max = 60)
@@ -35,6 +36,10 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "register_id")
     private Register register;
+
+    @ManyToMany
+    private List<Role> roles;
+
 
     public User(Long id) {
         this.id = id;

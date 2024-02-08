@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class LoginDTO {
 
     @NotBlank(message = "Campo login é obrigatório.")
-    private String login;
+    private String username;
     @NotBlank(message = "Campo password é obrigatório.")
     private String password;
 }
