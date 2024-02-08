@@ -10,5 +10,5 @@ import java.util.Optional;
 public interface LoginRepository extends JpaRepository<User,Long> {
     //User findUserByLogin(String login);
 
-    User findUserByLogin(String username);
+    User findUserByUsername(String username);
 }
