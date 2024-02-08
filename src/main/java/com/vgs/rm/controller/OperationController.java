@@ -38,6 +38,7 @@ public class OperationController {
     @PostMapping()
     public ResponseEntity save(@Valid @RequestBody OperationDTO operation){
         try {
+            operation.setActive(true);
             return new ResponseEntity<>(service.save(operation), HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>("[Error registering operation] - " + e.getMessage(), HttpStatus.BAD_REQUEST);
