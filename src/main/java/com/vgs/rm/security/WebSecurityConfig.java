@@ -21,10 +21,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @RequiredArgsConstructor //faz a mesma coisa que o autowired
 public class WebSecurityConfig {
 
-    private final CustomBasicAuthenticationFilter customBasicAuthenticationFilter;
+    //private final CustomBasicAuthenticationFilter customBasicAuthenticationFilter;
     @Bean
     public static PasswordEncoder passwordEncoder() {
-
         return new BCryptPasswordEncoder();
     }
     @Bean
@@ -32,26 +31,27 @@ public class WebSecurityConfig {
         return http
                 .cors(cors -> cors.disable())
                 .csrf(csrf -> csrf.disable())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                //.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((request) -> request
-                        .requestMatchers(HttpMethod.POST, "/user").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                        .anyRequest().authenticated()
-                ).addFilterBefore(customBasicAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                                .anyRequest().permitAll()
+                        //.requestMatchers(HttpMethod.POST, "/user").permitAll()
+                        //.requestMatchers(HttpMethod.POST, "/login").permitAll()
+                        //.anyRequest().authenticated()
+                )//.addFilterBefore(customBasicAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
-    @Bean
-    public WebMvcConfigurer webMvcConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry
-                        .addMapping("/**")
-                        .allowedOrigins("*")
-                        .allowedHeaders("*")
-                        .allowedMethods("*");
-            }
-        };
-    }
+//    @Bean
+//    public WebMvcConfigurer webMvcConfigurer() {
+//        return new WebMvcConfigurer() {
+//            @Override
+//            public void addCorsMappings(CorsRegistry registry) {
+//                registry
+//                        .addMapping("/**")
+//                        .allowedOrigins("*")
+//                        .allowedHeaders("*")
+//                        .allowedMethods("*");
+//            }
+//        };
+//    }
 }

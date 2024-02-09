@@ -17,7 +17,7 @@ public class RegisterController {
     @Autowired
     private RegisterService service;
 
-    @PreAuthorize("hasRole('PRODUCT_SELECT')")
+//    @PreAuthorize("hasRole('PRODUCT_SELECT')")
     @GetMapping
     public ResponseEntity getAll(){
         try {

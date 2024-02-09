@@ -6,21 +6,22 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "role")
+@Table(name = "race_animal")
 @EqualsAndHashCode(of = "id")
-public class Role {
+public class RaceAnimal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String race;
+    private String notes;
+    private Boolean active;
 
-    private String name;
-
-    public Role(Long id){
+    public RaceAnimal(Long id){
         this.id = id;
     }
 }
