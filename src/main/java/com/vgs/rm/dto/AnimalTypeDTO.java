@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RaceAnimalDTO {
+public class AnimalTypeDTO {
 
     private Long id;
-    @NotBlank(message = "Informe uma raça válida.")
-    private String race;
-
+    @NotBlank(message = "Informe um tipo válido.")
+    private String type;
     @Column(nullable = true)
     private String notes;
     private Boolean active;
