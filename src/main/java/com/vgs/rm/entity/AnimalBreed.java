@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "race_animal")
 @EqualsAndHashCode(of = "id")
-public class RaceAnimal {
+public class AnimalBreed {  //raça animal
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class RaceAnimal {
     private String notes;
     private Boolean active;
 
-    public RaceAnimal(Long id){
+    public AnimalBreed(Long id){
         this.id = id;
     }
 }
