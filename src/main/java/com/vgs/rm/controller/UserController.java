@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @PreAuthorize("hasRole('PRODUCT_SELECT')")
+    //@PreAuthorize("hasRole('PRODUCT_SELECT')")
     @GetMapping
     public ResponseEntity getAll() {
         try {
@@ -26,7 +26,7 @@ public class UserController {
             return new ResponseEntity<>("[Error displaying all users.] - " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-    @PreAuthorize("hasRole('PRODUCT_SELECT')")
+//    @PreAuthorize("hasRole('PRODUCT_SELECT')")
     @GetMapping("/{id}")
     public ResponseEntity getById(@PathVariable Long id){
         try {
@@ -35,7 +35,7 @@ public class UserController {
             return new ResponseEntity<>("[Error displaying the searched user.] - " + e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-    @PreAuthorize("hasRole('PRODUCT_INSERT')")
+//    @PreAuthorize("hasRole('PRODUCT_INSERT')")
     @PostMapping
     public ResponseEntity save(@Valid @RequestBody UserDTO user){
         try {
@@ -45,7 +45,7 @@ public class UserController {
         }
     }
 
-    @PreAuthorize("hasRole('PRODUCT_UPDATE')")
+//    @PreAuthorize("hasRole('PRODUCT_UPDATE')")
     @PutMapping
     public ResponseEntity update(@Valid @RequestBody UserDTO user){
         try {
@@ -55,7 +55,7 @@ public class UserController {
         }
     }
 
-    @PreAuthorize("hasRole('PRODUCT_DELETE')")
+//    @PreAuthorize("hasRole('PRODUCT_DELETE')")
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Long id){
         service.delete(id);

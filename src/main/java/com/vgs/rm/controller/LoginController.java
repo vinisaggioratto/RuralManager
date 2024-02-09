@@ -17,7 +17,7 @@ public class LoginController {
     @Autowired
     private LoginService service;
 
-    @PreAuthorize("hasRole('PRODUCT_INSERT')")
+    //@PreAuthorize("hasRole('PRODUCT_INSERT')")
     @PostMapping
     public ResponseEntity login(@Valid @RequestBody LoginDTO login){
         try {
