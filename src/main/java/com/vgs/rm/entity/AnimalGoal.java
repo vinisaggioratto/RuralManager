@@ -1,32 +1,28 @@
 package com.vgs.rm.entity;
 
-import com.vgs.rm.enums.TypeBuilding;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name = "building")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "animal_goal")
 @EqualsAndHashCode(of = "id")
-public class Building {
+public class AnimalGoal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String description;
+    private String objective;
+    private String notes;
     private Boolean active;
 
-    private TypeBuilding typeBuilding;
-
-    public Building (Long id){
+    public AnimalGoal(Long id){
         this.id = id;
     }
-
 }

@@ -42,7 +42,6 @@ public class Register {
     private String state;
     @Column(length = 30, nullable = false)
     private String country;
-
     private Boolean active;
     @Column(length = 2000)
     private String notes;
